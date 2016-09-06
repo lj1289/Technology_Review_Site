@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Technology_Review_Site.Models.Reviews>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Reviews</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@*  <table class="table">
+        <tr>    <!----- Titles of names of rows-->
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PosTime)
+        </th>
+        <th></th>
+    </tr>*@
+
+@*@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PosTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-sm-6">
+        <div class="row">
+            <div class="thumbnail">
+                <p>
+                    @Html.DisplayNameFor(model => model.Category.Name):
+                    @Html.DisplayFor(modelItem => item.Category.Name) <br />
+
+                    @Html.DisplayNameFor(model => model.Title):
+                    @Html.DisplayFor(modelItem => item.Title) <br />
+
+                    @Html.DisplayNameFor(model => model.Content):
+                    @Html.DisplayFor(modelItem => item.Content) <br />
+
+                    @Html.DisplayNameFor(model => model.PosTime):
+                    @Html.DisplayFor(modelItem => item.PosTime) <br />
+                </p>
+
+
+
+                <div class="caption">
+
+                    <p>
+                        @Html.ActionLink("Edit |", "Edit", new { id = item.ID })
+                        @Html.ActionLink("Details |", "Details", new { id = item.ID })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+
+                        @*<a href="" class="btn btn-primary" role="button">Button</a>
+                            <a href="#" class="btn btn-default" role="button">Button</a>*@
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
